@@ -22,6 +22,15 @@ body.dark-mode {
     color: var(--text-color-dark);
 }
 
+/* Add this to your existing CSS file */
+h1 {
+    transition: color 0.5s ease;
+}
+
+.dark-mode h1 {
+    color: white;
+}
+
 .card {
     border-radius: 15px;
     overflow: hidden;
@@ -37,7 +46,7 @@ body.dark-mode {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -49,36 +58,68 @@ body.dark-mode {
     padding: 20px 0;
 }
 
+.weather-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px 0; */
+}
+
 .weather-icon img {
     width: 100px;
     height: 100px;
-    animation: pulse 2s infinite ease-in-out;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
+/* Weather Detail Icons */
 .weather-detail {
     background: var(--detail-bg-light);
-    padding: 10px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 15px;
     transition: transform 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-.dark-mode .weather-detail {
-    background: var(--detail-bg-dark);
+.weather-detail i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    background: linear-gradient(to right, #5c9ce6, #4a7ab8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.dark-mode .weather-detail p {
-    color: white;
+.dark-mode .weather-detail i {
+    background: linear-gradient(to right, #89cff0, #6dd5ed);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.weather-detail p {
+    margin: 0;
+    text-align: center;
 }
 
 .weather-detail:hover {
+    transform: translateY(-5px);
     background: rgba(92, 156, 230, 0.1);
-    transform: translateY(-3px);
 }
 
 .dark-mode .weather-detail:hover {
@@ -124,10 +165,12 @@ body.dark-mode {
     box-shadow: 0 5px 15px rgba(74, 122, 184, 0.4);
 }
 
+/* Enhanced Input Field Styling */
 .input-group {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .dark-mode .input-group {
@@ -136,8 +179,16 @@ body.dark-mode {
 
 #city-input {
     border: none;
-    padding: 12px 15px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
     transition: all 0.3s ease, background 0.5s ease, color 0.5s ease;
+}
+
+#city-input:focus {
+    box-shadow: none;
+    outline: none;
+    background: #ffffff;
 }
 
 .dark-mode #city-input {
@@ -145,16 +196,68 @@ body.dark-mode {
     color: #333;
 }
 
-#city-input:focus {
-    box-shadow: none;
+.dark-mode #city-input:focus {
+    background: #ffffff;
+}
+
+.btn-primary {
+    padding: 12px 25px;
+    font-weight: 500;
+    background: linear-gradient(to right, #5c9ce6, #4a7ab8);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #4a7ab8, #3a5a88);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 122, 184, 0.4);
+}
+
+/* Input field responsive styles */
+@media (max-width: 576px) {
+    .input-group {
+        /* margin: 10px; */
+    }
+    
+    #city-input {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-primary {
+        padding: 10px 20px;
+    }
 }
 
 #city-name {
     animation: fadeIn 1s ease-in;
     transition: color 0.5s ease;
+    color: var(--text-color-light);
 }
 
 .dark-mode #city-name {
+    color: white;
+}
+
+.weather-detail {
+    background: var(--detail-bg-light);
+    padding: 15px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color-light);
+}
+
+.dark-mode .weather-detail {
+    background: var(--detail-bg-dark);
+    color: white;
+}
+
+.dark-mode .weather-detail p {
     color: white;
 }
 
@@ -221,10 +324,144 @@ body.dark-mode {
     display: block;
 }
 
-/* Add this to your existing CSS file */
-h1 {
-    transition: color 0.5s ease;
+
+
+
+/* Responsive Design */
+/* For extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    .card {
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #temperature {
+        font-size: 2.5rem;
+    }
+
+    .weather-detail {
+        margin-bottom: 10px;
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+
+    #city-name {
+        font-size: 1.5rem;
+        margin-top: -10px;
+    }
+
+    .weather-icon img {
+        width: 80px;
+        height: 80px;
+    }
 }
 
-.dark-mode h1 {
-    color: white;
+/* For small devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .weather-info {
+        padding: 15px 0;
+    }
+
+    #city-name {
+        margin-top: -20px;
+    }
+}
+
+
+/* For medium devices (tablets, between 768px and 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .card {
+        margin: 20px auto;
+    }
+
+    .weather-detail {
+        padding: 15px;
+    }
+}
+
+/* For large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .card {
+        /* max-width: 800px; */
+        margin: 30px;
+    }
+
+    .weather-info {
+        padding: 30px 0;
+    }
+
+    .weather-detail {
+        padding: 20px;
+    }
+}
+
+/* Fix for horizontal line on small screens */
+@media (max-width: 576px) {
+    .card {
+        margin: 10px;
+        border-radius: 10px;
+        border: none; /* Remove default card border */
+    }
+
+    #city-name {
+        margin-top: -10px;
+    }
+
+    .col-4 {
+        padding: 5px; /* Adjust padding for better spacing on mobile */
+        width: 100%;
+    }
+
+    .weather-detail {
+        margin-bottom: 10px;
+        border: none; /* Ensure no borders on weather details */
+    }
+
+    /* Remove any horizontal overflow */
+    .container-fluid {
+        overflow-x: hidden;
+    }
+
+    /* Adjust card body padding */
+    .card-body {
+        padding: 15px;
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+    .card {
+        margin: 5px auto;
+    }
+
+    .weather-info {
+        padding: 10px 0;
+    }
+
+    #temperature {
+        margin: 5px 0;
+    }
+
+    .weather-icon img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .row.mt-4 {
+        margin-top: 0.5rem !important;
+    }
+}
+

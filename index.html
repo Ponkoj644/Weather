@@ -22,58 +22,75 @@
         <i class="fas fa-moon"></i>
     </div>
 
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h1 class="text-center mb-4">Weather App</h1>
+    <!-- main -->
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-5">
+                <div class="col col-lg-10 ">
+                    <div class="card shadow m-0 m-sm-2 m-md-3 m-lg-0 ">
+                        <div class="card-body p-3 p-md-4 p-lg-5">
+                            <h1 class="text-center mb-4">Weather App</h1>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="city-input" placeholder="Enter city name">
-                            <button class="btn btn-primary" type="button" id="search-btn">Search</button>
-                        </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="city-input" placeholder="Enter city name">
+                                <button class="btn btn-primary" type="button" id="search-btn">Search</button>
+                            </div>
 
-                        <div class="weather-info mt-4 d-none" id="weather-container">
-                            <div class="text-center">
-                                <h2 id="city-name">City Name</h2>
-                                <div class="weather-icon">
-                                    <img id="weather-icon" src="" alt="Weather Icon">
-                                </div>
-                                <h3 id="temperature">--°C</h3>
-                                <p id="description">Weather Description</p>
+                            <div class="weather-info mt-4" id="weather-container">
 
-                                <div class="row mt-4">
-                                    <div class="col-4">
-                                        <div class="weather-detail">
-                                            <p class="mb-1">Humidity</p>
-                                            <p id="humidity">--%</p>
+                                <div class="weather-info-wraper text-center">
+                                    <div class="weather-info-city d-flex align-items-center justify-content-between">
+                                        <div class="d-block d-md-flex align-items-center">
+                                            <div class="weather-icon">
+                                                <img id="weather-icon" src="" alt="Weather Icon">
+                                            </div>
+                                            <h2 id="city-name">City Name</h2>
                                         </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="weather-detail">
-                                            <p class="mb-1">Wind</p>
-                                            <p id="wind-speed">-- km/h</p>
+
+                                        <div class="weather-info-temp">
+
+                                            <h3 id="temperature">--°C</h3>
+                                            <p id="description">Weather Description</p>
                                         </div>
+
                                     </div>
-                                    <div class="col-4">
-                                        <div class="weather-detail">
-                                            <p class="mb-1">Feels Like</p>
-                                            <p id="feels-like">--°C</p>
+                                    <div class="weather-info-other">
+                                        <div class="row mt-4">
+                                            <div class="col-4">
+                                                <div class="weather-detail">
+                                                    <i class="fas fa-tint"></i>
+                                                    <p class="mb-1">Humidity</p>
+                                                    <p id="humidity">--%</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="weather-detail">
+                                                    <i class="fas fa-wind"></i>
+                                                    <p class="mb-1">Wind</p>
+                                                    <p id="wind-speed">-- km/h</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="weather-detail">
+                                                    <i class="fas fa-thermometer-half"></i>
+                                                    <p class="mb-1">Feels Like</p>
+                                                    <p id="feels-like">--°C</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div id="error-message" class="alert alert-danger mt-3 d-none">
-                            City not found. Please try again.
+                            <div id="error-message" class="alert alert-danger mt-3 d-none">
+                                City not found. Please try again.
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
