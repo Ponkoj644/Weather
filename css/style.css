@@ -1,0 +1,45 @@
+body {
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.weather-info {
+    padding: 20px 0;
+}
+
+.weather-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.weather-detail {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#description {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background-color: #5c9ce6;
+    border-color: #5c9ce6;
+}
+
+.btn-primary:hover {
+    background-color: #4a7ab8;
+    border-color: #4a7ab8;
+}
