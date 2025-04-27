@@ -1,0 +1,15 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather App with secure API key handling using Netlify Functions",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.0.0"
+  }
+}

@@ -11,6 +11,15 @@ const feelsLike = document.getElementById('feels-like');
 const weatherContainer = document.getElementById('weather-container');
 const errorMessage = document.getElementById('error-message');
 
+// Hide weather container on page load and show it only after successful search
+document.addEventListener('DOMContentLoaded', function () {
+    // Initially hide the error message
+    errorMessage.classList.add('d-none');
+
+    // Hide weather container by default
+    weatherContainer.classList.add('d-none');
+});
+
 // Event listeners
 searchBtn.addEventListener('click', getWeather);
 cityInput.addEventListener('keyup', function (event) {
@@ -28,9 +37,9 @@ function getWeather() {
         return;
     }
 
-    // Use API key from config file
-    const apiKey = config.apiKey;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    // Direct API call to OpenWeatherMap
+    const apiKey = '5f472b7acba333cd8a035ea85a0d4d4c'; // Demo API key from OpenWeatherMap docs
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
 
     fetch(apiUrl)
         .then(response => {
